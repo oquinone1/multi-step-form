@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/oquinone/mulit-step-form/static/css/main.9c8f41b3.css",
+    "main.js": "/oquinone/mulit-step-form/static/js/main.84b431fc.js",
+    "static/js/453.68693753.chunk.js": "/oquinone/mulit-step-form/static/js/453.68693753.chunk.js",
+    "static/media/bg-sidebar-desktop.svg": "/oquinone/mulit-step-form/static/media/bg-sidebar-desktop.6918153f38678372ceb1.svg",
+    "static/media/bg-sidebar-mobile.svg": "/oquinone/mulit-step-form/static/media/bg-sidebar-mobile.ad41661b40ca0b967f3a.svg",
+    "static/media/icon-advanced.svg": "/oquinone/mulit-step-form/static/media/icon-advanced.705bd10c4c1f688871d729633f0ca4ae.svg",
+    "static/media/icon-thank-you.svg": "/oquinone/mulit-step-form/static/media/icon-thank-you.ee753f231cc5a5789b8eb922a96472c0.svg",
+    "index.html": "/oquinone/mulit-step-form/index.html",
+    "static/media/icon-pro.svg": "/oquinone/mulit-step-form/static/media/icon-pro.2e7e377da9c658d608624304a0f8dae6.svg",
+    "static/media/icon-arcade.svg": "/oquinone/mulit-step-form/static/media/icon-arcade.a08c098289a31bb2f66d675be71565b3.svg",
+    "main.9c8f41b3.css.map": "/oquinone/mulit-step-form/static/css/main.9c8f41b3.css.map",
+    "main.84b431fc.js.map": "/oquinone/mulit-step-form/static/js/main.84b431fc.js.map",
+    "453.68693753.chunk.js.map": "/oquinone/mulit-step-form/static/js/453.68693753.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c8f41b3.css",
+    "static/js/main.84b431fc.js"
+  ]
+}
