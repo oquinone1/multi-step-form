@@ -1,0 +1,69 @@
+.summary-container {
+  background-color: white;
+  text-align: start;
+  margin: 0 25px;
+  border-radius: 10px;
+  padding: 25px;
+
+  #summary-header-text {
+    font-size: 25px;
+    color: hsl(213, 96%, 18%);
+    font-weight: bold;
+  }
+
+  #summary-description-text {
+    font-size: 16px;
+    color: hsl(231, 11%, 63%);
+  }
+
+  #card-container {
+    background-color: hsl(231, 100%, 99%);
+    .plan-summary {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+
+      #plan-text {
+        font-weight: bold;
+        color: hsl(213, 96%, 18%);
+        font-size: 16px;
+      }
+
+      #price-text {
+        font-weight: bold;
+        color: hsl(213, 96%, 18%);
+        font-size: 16px;
+      }
+    }
+
+    .add-ons {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      padding: 8px 0;
+
+      &-name {
+        font-size: 14px;
+        color: hsl(231, 11%, 63%);
+      }
+
+      &-price {
+        font-size: 13px;
+        color: hsl(213, 96%, 18%);
+      }
+    }
+  }
+
+  #totals-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 15px 10px 0 10px;
+
+    &-header {
+      font-size: 14px;
+      color: hsl(231, 11%, 63%);
+    }
+  }
+}

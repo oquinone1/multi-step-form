@@ -1,0 +1,24 @@
+.info-container {
+  background-color: white;
+  margin: 0 20px;
+  border-radius: 10px;
+  text-align: start;
+  padding: 25px 25px;
+
+  #info-header {
+    font-size: 25px;
+    font-weight: bold;
+    color: hsl(213, 96%, 18%);
+  }
+
+  #info-description {
+    font-size: 16px;
+    color: hsl(231, 11%, 63%);
+    padding-bottom: 15px;
+  }
+
+  .input-box {
+    padding-bottom: 15px;
+    width: 100%;
+  }
+}

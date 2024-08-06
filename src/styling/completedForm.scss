@@ -1,0 +1,24 @@
+#completed-container {
+  background-color: white;
+  margin: 0 20px;
+  padding: 80px 20px;
+  border-radius: 8px;
+
+  img {
+    width: 55px;
+    height: 55px;
+  }
+
+  h1 {
+    font-size: 25px;
+    color: hsl(213, 96%, 18%);
+  }
+
+  p {
+    color: hsl(231, 11%, 63%);
+    text-align: center;
+    padding: 0 20px;
+    line-height: 25px;
+    font-size: 15px;
+  }
+}

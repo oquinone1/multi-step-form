@@ -1,0 +1,60 @@
+.add-ons-container {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  margin: 0 20px;
+  padding: 25px 25px;
+  text-align: start;
+
+  #header-text {
+    color: hsl(213, 96%, 18%);
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  #description-text {
+    color: hsl(231, 11%, 63%);
+    padding-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .card-container {
+    margin-bottom: 15px;
+    box-shadow: none;
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 80px;
+
+    .checkbox-container {
+      margin: auto 0;
+      padding: 0;
+      width: 30px;
+      // border: 1px solid red;
+    }
+
+    .card-content {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .card-text-header {
+        color: hsl(213, 96%, 18%);
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .card-description {
+        color: hsl(231, 11%, 63%);
+        font-size: 13px;
+      }
+
+      .card-price {
+        font-size: 13px;
+        color: hsl(243, 100%, 62%);
+      }
+    }
+  }
+}
