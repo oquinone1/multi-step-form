@@ -18,10 +18,6 @@
       padding: 15px;
       border-radius: 8px;
 
-      // #bg-sidebar {
-      //   content: url("../images//bg-sidebar-desktop.svg");
-      // }
-
       .stepper-container {
         display: flex;
         align-items: stretch;
@@ -43,8 +39,6 @@
         padding: 0 40px;
         display: flex;
         flex-flow: column nowrap;
-        // align-items: stretch;
-        // justify-content: space-around;
 
         .buttons-outer-container {
           display: flex;
@@ -66,10 +60,6 @@
     height: 100vh;
 
     .stepper-container {
-      // position: relative;
-      // bottom: 10px;
-      // top: -150px;
-      // margin: 0 80px;
       height: 200px;
       background-image: url("../images/bg-sidebar-mobile.svg");
       background-repeat: no-repeat;
@@ -102,13 +92,6 @@
       padding: 15px 0;
     }
   }
-}
-
-.step-content {
-  color: white;
-}
-.stepper-label {
-  color: white;
 }
 
 #btn-go-back {

@@ -31,12 +31,40 @@ const MulitPartFormComponent = () => {
           >
             {steps.map((step: Record<string, string>, index: number) => {
               return (
-                <Step key={`step_${index}`}>
-                  <StepLabel className="stepper-label">
-                    {screenSize <= 787 ? "" : step.step}
+                <Step
+                  key={`step_${index}`}
+                  sx={{
+                    "& .MuiStepLabel-root .Mui-completed": {
+                      color: "white",
+                    },
+                    "& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel":
+                      {
+                        color: "white",
+                      },
+                    "& .MuiStepLabel-root .Mui-active": {
+                      color: "white",
+                    },
+                    "& .MuiStepLabel-label.Mui-active.MuiStepLabel-alternativeLabel":
+                      {
+                        color: "#38a832",
+                      },
+                    "& .MuiStepLabel-root .Mui-active .MuiStepIcon-text": {
+                      fill: "#000",
+                    },
+                  }}
+                >
+                  <StepLabel
+                    className="stepper-label"
+                    sx={{ color: "#fff", fontSize: "25px" }}
+                  >
+                    <Typography variant="caption" color="#fff">
+                      {screenSize <= 879 ? "" : step.step}
+                    </Typography>
                   </StepLabel>
                   <StepContent className="step-content">
-                    <Typography>{step.content}</Typography>
+                    <Typography variant="body1" color="#fff">
+                      {screenSize <= 879 ? "" : step.content}
+                    </Typography>
                   </StepContent>
                 </Step>
               );
