@@ -43,15 +43,17 @@
         padding: 0 40px;
         display: flex;
         flex-flow: column nowrap;
-        align-items: stretch;
-        justify-content: space-around;
+        // align-items: stretch;
+        // justify-content: space-around;
 
         .buttons-outer-container {
           display: flex;
           flex-flow: row nowrap;
           justify-content: space-around;
-          background-color: white;
           padding: 15px 0;
+          width: 41%;
+          position: fixed;
+          bottom: 140px;
         }
       }
     }

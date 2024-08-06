@@ -21,4 +21,14 @@
     margin-bottom: 20px;
     width: 100%;
   }
+
+  @media screen and (min-width: 879px) {
+    #info-header {
+      font-size: 30px;
+    }
+
+    #info-description {
+      padding: 5px 0 27px 0;
+    }
+  }
 }

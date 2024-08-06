@@ -18,6 +18,11 @@
 
   #card-container {
     background-color: hsl(231, 100%, 99%);
+    .break {
+      width: 100%;
+      border-top: 1px solid rgb(219, 219, 219);
+    }
+
     .plan-summary {
       display: flex;
       flex-flow: row nowrap;
@@ -64,6 +69,16 @@
     &-header {
       font-size: 14px;
       color: hsl(231, 11%, 63%);
+    }
+  }
+
+  @media screen and (min-width: 879px) {
+    #summary-header-text {
+      font-size: 30px;
+    }
+
+    #summary-description-text {
+      padding: 5px 0 20px 0;
     }
   }
 }

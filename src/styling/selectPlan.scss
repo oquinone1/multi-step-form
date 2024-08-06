@@ -64,6 +64,14 @@
   }
 
   @media screen and (min-width: 879px) {
+    #header-text {
+      font-size: 30px;
+    }
+
+    #p-text {
+      padding: 5px 0 23px 0;
+    }
+
     .outer-card-container {
       display: flex;
       flex-flow: row nowrap;

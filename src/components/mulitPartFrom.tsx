@@ -44,7 +44,7 @@ const MulitPartFormComponent = () => {
           </Stepper>
         </div>
         <div className="content-container">
-          <div className="container">{component}</div>
+          <div className="component-container">{component}</div>
           {activeStep < 4 ? (
             <footer className="buttons-outer-container">
               <Button

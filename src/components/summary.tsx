@@ -48,7 +48,7 @@ const SummaryComponent = () => {
               }`}</Typography>
             </>
           </div>
-          <div style={{ width: "100%", borderBottom: "0.5px solid red" }} />
+          <div className="break" />
 
           <div>
             {store.onlineService ? (
