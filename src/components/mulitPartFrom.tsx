@@ -1,10 +1,20 @@
-import { Stepper, Step, StepLabel, Button } from "@mui/material";
-// import bgSideBarMobile from "../images/bg-sidebar-mobile.svg";
-// import bgSidebarDesktop from "../images/bg-sidebar-desktop.svg";
+import {
+  Stepper,
+  Step,
+  StepLabel,
+  Button,
+  StepContent,
+  Typography,
+} from "@mui/material";
 import "../styling/multipartForm.scss";
 import { useStepper } from "../hooks/hooks";
 
-const steps = ["", "", "", ""];
+const steps: Record<string, string>[] = [
+  { step: "STEP 1", content: "YOUR INFO" },
+  { step: "STEP 2", content: "SELECT PLAN" },
+  { step: "STEP 3", content: "ADD-ONS" },
+  { step: "STEP 4", content: "SUMMARY" },
+];
 
 const MulitPartFormComponent = () => {
   const { activeStep, component, setNextStep, setPreviousStep, screenSize } =
@@ -13,16 +23,21 @@ const MulitPartFormComponent = () => {
   return (
     <main id="container">
       <div className="mulitpart-form-container">
-        <img alt="background sidebar" id="bg-sidebar" />
         <div className="stepper-container">
           <Stepper
+            className="stepper-container-list"
             activeStep={activeStep}
             orientation={`${screenSize <= 878 ? "horizontal" : "vertical"}`}
           >
-            {steps.map((label, index) => {
+            {steps.map((step: Record<string, string>, index: number) => {
               return (
                 <Step key={`step_${index}`}>
-                  <StepLabel>{}</StepLabel>
+                  <StepLabel className="stepper-label">
+                    {screenSize <= 787 ? "" : step.step}
+                  </StepLabel>
+                  <StepContent className="step-content">
+                    <Typography>{step.content}</Typography>
+                  </StepContent>
                 </Step>
               );
             })}
