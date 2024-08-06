@@ -70,13 +70,7 @@ const SelectPlanComponent = () => {
         You have the option of monthly or yearly billing
       </Typography>
 
-      <div
-        style={{
-          display: "flex",
-          flexFlow: "column nowrap",
-          alignItems: "center",
-        }}
-      >
+      <div className="outer-card-container">
         {/* Arcade */}
         <Card
           className="card-container"
