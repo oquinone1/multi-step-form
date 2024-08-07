@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/multi-step-form/static/css/main.8d725c48.css",
-    "main.js": "/multi-step-form/static/js/main.5ca6ea1c.js",
+    "main.css": "/multi-step-form/static/css/main.b156b98d.css",
+    "main.js": "/multi-step-form/static/js/main.546ae090.js",
     "static/js/453.68693753.chunk.js": "/multi-step-form/static/js/453.68693753.chunk.js",
     "static/media/bg-sidebar-desktop.svg": "/multi-step-form/static/media/bg-sidebar-desktop.6918153f38678372ceb1.svg",
     "static/media/bg-sidebar-mobile.svg": "/multi-step-form/static/media/bg-sidebar-mobile.ad41661b40ca0b967f3a.svg",
@@ -10,12 +10,12 @@
     "index.html": "/multi-step-form/index.html",
     "static/media/icon-pro.svg": "/multi-step-form/static/media/icon-pro.2e7e377da9c658d608624304a0f8dae6.svg",
     "static/media/icon-arcade.svg": "/multi-step-form/static/media/icon-arcade.a08c098289a31bb2f66d675be71565b3.svg",
-    "main.8d725c48.css.map": "/multi-step-form/static/css/main.8d725c48.css.map",
-    "main.5ca6ea1c.js.map": "/multi-step-form/static/js/main.5ca6ea1c.js.map",
+    "main.b156b98d.css.map": "/multi-step-form/static/css/main.b156b98d.css.map",
+    "main.546ae090.js.map": "/multi-step-form/static/js/main.546ae090.js.map",
     "453.68693753.chunk.js.map": "/multi-step-form/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8d725c48.css",
-    "static/js/main.5ca6ea1c.js"
+    "static/css/main.b156b98d.css",
+    "static/js/main.546ae090.js"
   ]
 }
