@@ -15,6 +15,7 @@ const items = [
 
 // logic for stepper
 export function useStepper() {
+  const store = useStore();
   const [activeStep, setActiveStep] = useState(0);
   const [component, setComponent] = useState(items[0]);
   const [screenSize, setScreenSize] = useState(window.innerWidth);
@@ -31,7 +32,27 @@ export function useStepper() {
   }, []);
 
   const setNextStep = () => {
-    setActiveStep(activeStep + 1);
+    if (activeStep === 0) {
+      if (!store.name) store.setHasNameBeenEntered(false);
+      else if (store.name && !store.hasNameBeenEntered)
+        store.setHasNameBeenEntered(true);
+
+      if (!store.email) store.setHasEmailBeenEntered(false);
+      else if (store.email && !store.hasEmailBeenEntered)
+        store.setHasEmailBeenEntered(true);
+
+      if (store.name && store.email) setActiveStep(() => activeStep + 1);
+    } else if (activeStep === 1) {
+      if (!store.planSelected) {
+        store.setHasPlanBeenSelected(false);
+      } else if (store.planSelected && !store.hasPlanBeenSelected) {
+        store.setHasPlanBeenSelected(true);
+      }
+
+      if (store.planSelected) setActiveStep(activeStep + 1);
+    } else {
+      setActiveStep(activeStep + 1);
+    }
   };
 
   const setPreviousStep = () => {
@@ -51,6 +72,23 @@ export function useStepper() {
   };
 }
 
+//logic for user input
+// function useHasUserEnteredPersonalInfo(setActiveStep, activeStep) {
+//   const store = useStore();
+//   let pass = true;
+
+//   if (!store.name) {
+//     store.setHasNameBeenEntered(false);
+//     pass = false;
+//   } else if (store.name && !store.setHasNameBeenEntered) {
+//     store.setHasNameBeenEntered(true);
+//     pass = true;
+//   }
+
+//   if (pass) setActiveStep(() => activeStep + 1);
+// }
+
+// logic for Selecting A Plan
 const plans = ["Arcade", "Advanced", "Pro"];
 const prices = [9, 12, 15];
 export function useSelectPlan() {
@@ -74,6 +112,7 @@ export function useSelectPlan() {
   return { setSelectedPlan, monthlyOrYearlyPlan };
 }
 
+// Logic for picking add ons
 export function usePickAddOns() {
   const store = useStore();
 

@@ -12,14 +12,18 @@ const PersonalInfoComponent = () => {
         Please prodive your name, email address, and phone number
       </Typography>
       <TextField
+        error={store.hasNameBeenEntered ? false : true}
         id="name-textbox"
         label="Name"
         variant="outlined"
         className="input-box"
+        helperText={store.hasNameBeenEntered ? "" : "Must enter name"}
         value={store.name}
         onChange={(e) => store.setName(e.target.value)}
       />
       <TextField
+        error={store.hasEmailBeenEntered ? false : true}
+        helperText={store.hasEmailBeenEntered ? "" : "Must enter email"}
         id="email-address-textbox"
         label="Email Address"
         variant="outlined"

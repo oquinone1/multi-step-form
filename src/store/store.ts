@@ -29,4 +29,13 @@ export const useStore = create((set) => ({
   setCustomizableProfilePrice: (price: number) =>
     set({ customizableProfilePrice: price }),
   setPrice: (price: Number) => set({ price: price }),
+
+  hasNameBeenEntered: true,
+  hasEmailBeenEntered: true,
+  hasPlanBeenSelected: true,
+
+  setHasNameBeenEntered: (name: boolean) => set({ hasNameBeenEntered: name }),
+  setHasEmailBeenEntered: (email: boolean) =>
+    set({ hasEmailBeenEntered: email }),
+  setHasPlanBeenSelected: (plan: boolean) => set({ hasPlanBeenSelected: plan }),
 }));

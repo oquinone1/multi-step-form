@@ -6,6 +6,7 @@ import {
   Typography,
   Stack,
   Switch,
+  Alert,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import IconArcade from "../images/icon-arcade.svg";
@@ -174,6 +175,13 @@ const SelectPlanComponent = () => {
           <Typography id="yearly-text">Yearly</Typography>
         </Stack>
       </div>
+      <>
+        {store.hasPlanBeenSelected ? null : (
+          <Alert variant="filled" severity="error">
+            Must Select A Plan.
+          </Alert>
+        )}
+      </>
     </div>
   );
 };
