@@ -1,23 +1,10 @@
 import { useEffect, useState } from "react";
-import PersonalInfoComponent from "../components/personalInfo";
-import SelectPlanComponent from "../components/selectPlan";
-import PickAddOnsComponent from "../components/pickAddOns";
-import SummaryComponent from "../components/summary";
-import CompletedFormComponent from "../components/completedForm";
 import { useStore } from "../store/store";
-const items = [
-  <PersonalInfoComponent />,
-  <SelectPlanComponent />,
-  <PickAddOnsComponent />,
-  <SummaryComponent />,
-  <CompletedFormComponent />,
-];
 
 // logic for stepper
 export function useStepper() {
   const store = useStore();
   const [activeStep, setActiveStep] = useState(0);
-  const [component, setComponent] = useState(items[0]);
   const [screenSize, setScreenSize] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -59,34 +46,18 @@ export function useStepper() {
     setActiveStep(activeStep - 1);
   };
 
-  useEffect(() => {
-    setComponent(items[activeStep]);
-  }, [activeStep]);
+  const allowUserToChangePlan = () => {
+    setActiveStep(1);
+  };
 
   return {
     activeStep,
-    component,
     setNextStep,
     setPreviousStep,
     screenSize,
+    allowUserToChangePlan,
   };
 }
-
-//logic for user input
-// function useHasUserEnteredPersonalInfo(setActiveStep, activeStep) {
-//   const store = useStore();
-//   let pass = true;
-
-//   if (!store.name) {
-//     store.setHasNameBeenEntered(false);
-//     pass = false;
-//   } else if (store.name && !store.setHasNameBeenEntered) {
-//     store.setHasNameBeenEntered(true);
-//     pass = true;
-//   }
-
-//   if (pass) setActiveStep(() => activeStep + 1);
-// }
 
 // logic for Selecting A Plan
 const plans = ["Arcade", "Advanced", "Pro"];
@@ -158,4 +129,30 @@ export function usePickAddOns() {
     setLargerStorage,
     setCustomizableProfile,
   };
+}
+
+export function useSummaryHook() {
+  const store = useStore();
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    let calculateTotal = 0;
+    calculateTotal += store.price;
+    calculateTotal += store.onlineService ? store.onlineServicePrice : 0;
+    calculateTotal += store.largerStorage ? store.largerStoragePrice : 0;
+    calculateTotal += store.customizableProfile
+      ? store.customizableProfilePrice
+      : 0;
+    setTotal(calculateTotal);
+  }, [
+    store.price,
+    store.onlineService,
+    store.onlineServicePrice,
+    store.largerStorage,
+    store.largerStoragePrice,
+    store.customizableProfile,
+    store.customizableProfilePrice,
+  ]);
+
+  return { total, store };
 }

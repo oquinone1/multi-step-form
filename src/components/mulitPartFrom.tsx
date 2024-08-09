@@ -9,6 +9,12 @@ import {
 import "../styling/multipartForm.scss";
 import { useStepper } from "../hooks/hooks";
 
+import PersonalInfoComponent from "../components/personalInfo";
+import SelectPlanComponent from "../components/selectPlan";
+import PickAddOnsComponent from "../components/pickAddOns";
+import SummaryComponent from "../components/summary";
+import CompletedFormComponent from "../components/completedForm";
+
 const steps: Record<string, string>[] = [
   { step: "STEP 1", content: "YOUR INFO" },
   { step: "STEP 2", content: "SELECT PLAN" },
@@ -17,8 +23,13 @@ const steps: Record<string, string>[] = [
 ];
 
 const MulitPartFormComponent = () => {
-  const { activeStep, component, setNextStep, setPreviousStep, screenSize } =
-    useStepper();
+  const {
+    activeStep,
+    setNextStep,
+    setPreviousStep,
+    screenSize,
+    allowUserToChangePlan,
+  } = useStepper();
 
   return (
     <main id="container">
@@ -61,18 +72,28 @@ const MulitPartFormComponent = () => {
                       {screenSize <= 879 ? "" : step.step}
                     </Typography>
                   </StepLabel>
-                  <StepContent className="step-content">
-                    <Typography variant="body1" color="#fff">
-                      {screenSize <= 879 ? "" : step.content}
-                    </Typography>
-                  </StepContent>
+                  {screenSize <= 879 ? null : (
+                    <StepContent className="step-content">
+                      <Typography variant="body1" color="#fff">
+                        {step.content}
+                      </Typography>
+                    </StepContent>
+                  )}
                 </Step>
               );
             })}
           </Stepper>
         </div>
         <div className="content-container">
-          <div className="component-container">{component}</div>
+          <div className="component-container">
+            {activeStep === 0 ? <PersonalInfoComponent /> : null}
+            {activeStep === 1 ? <SelectPlanComponent /> : null}
+            {activeStep === 2 ? <PickAddOnsComponent /> : null}
+            {activeStep === 3 ? (
+              <SummaryComponent allowUserToChangePlan={allowUserToChangePlan} />
+            ) : null}
+            {activeStep === 4 ? <CompletedFormComponent /> : null}
+          </div>
           {activeStep < 4 ? (
             <footer className="buttons-outer-container">
               <Button

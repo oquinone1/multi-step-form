@@ -1,30 +1,12 @@
-import { useEffect, useState } from "react";
-import { Typography, Card, CardContent } from "@mui/material";
-import { useStore } from "../store/store";
+import { Typography, Card, CardContent, Button } from "@mui/material";
 import "../styling/summary.scss";
+import { useSummaryHook } from "../hooks/hooks";
+import { useStore } from "../store/store";
 
-const SummaryComponent = () => {
+const SummaryComponent = (props: any) => {
+  const { allowUserToChangePlan } = props || {};
+  const { total } = useSummaryHook();
   const store: any = useStore();
-  const [total, setTotal] = useState(0);
-
-  useEffect(() => {
-    let calculateTotal = 0;
-    calculateTotal += store.price;
-    calculateTotal += store.onlineService ? store.onlineServicePrice : 0;
-    calculateTotal += store.largerStorage ? store.largerStoragePrice : 0;
-    calculateTotal += store.customizableProfile
-      ? store.customizableProfilePrice
-      : 0;
-    setTotal(calculateTotal);
-  }, [
-    store.price,
-    store.onlineService,
-    store.onlineServicePrice,
-    store.largerStorage,
-    store.largerStoragePrice,
-    store.customizableProfile,
-    store.customizableProfilePrice,
-  ]);
 
   return (
     <main className="summary-container">
@@ -40,7 +22,14 @@ const SummaryComponent = () => {
               <Typography id="plan-text">{`${store.planSelected} ${
                 store.monthlyOrYearlyPlan ? "(Yearly)" : "(Monthly)"
               }`}</Typography>
-              <Typography>Change</Typography>
+              <Button
+                onClick={() => allowUserToChangePlan()}
+                variant="text"
+                size="small"
+                sx={{ textTransform: "lowercase", textDecoration: "underline" }}
+              >
+                Change
+              </Button>
             </span>
             <>
               <Typography id="price-text">{`$${store.price}/${
@@ -48,7 +37,11 @@ const SummaryComponent = () => {
               }`}</Typography>
             </>
           </div>
-          <div className="break" />
+          {store.onlineService ||
+          store.largerStorage ||
+          store.customizableProfile ? (
+            <div className="break" />
+          ) : null}
 
           <div>
             {store.onlineService ? (
