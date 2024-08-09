@@ -14,6 +14,7 @@ import SelectPlanComponent from "../components/selectPlan";
 import PickAddOnsComponent from "../components/pickAddOns";
 import SummaryComponent from "../components/summary";
 import CompletedFormComponent from "../components/completedForm";
+import { Sections, ScreenSize } from "../extras/enums";
 
 const steps: Record<string, string>[] = [
   { step: "STEP 1", content: "YOUR INFO" },
@@ -38,7 +39,9 @@ const MulitPartFormComponent = () => {
           <Stepper
             className="stepper-container-list"
             activeStep={activeStep}
-            orientation={`${screenSize <= 878 ? "horizontal" : "vertical"}`}
+            orientation={`${
+              screenSize <= ScreenSize.MobileScreen ? "horizontal" : "vertical"
+            }`}
           >
             {steps.map((step: Record<string, string>, index: number) => {
               return (
@@ -69,10 +72,10 @@ const MulitPartFormComponent = () => {
                     sx={{ color: "#fff", fontSize: "25px" }}
                   >
                     <Typography variant="caption" color="#fff">
-                      {screenSize <= 879 ? "" : step.step}
+                      {screenSize <= ScreenSize.MobileScreen ? "" : step.step}
                     </Typography>
                   </StepLabel>
-                  {screenSize <= 879 ? null : (
+                  {screenSize <= ScreenSize.MobileScreen ? null : (
                     <StepContent className="step-content">
                       <Typography variant="body1" color="#fff">
                         {step.content}
@@ -85,19 +88,27 @@ const MulitPartFormComponent = () => {
           </Stepper>
         </div>
         <div className="content-container">
-          <div className="component-container">
-            {activeStep === 0 ? <PersonalInfoComponent /> : null}
-            {activeStep === 1 ? <SelectPlanComponent /> : null}
-            {activeStep === 2 ? <PickAddOnsComponent /> : null}
-            {activeStep === 3 ? (
+          <section className="component-container">
+            {activeStep === Sections.PersonalInfo ? (
+              <PersonalInfoComponent />
+            ) : null}
+            {activeStep === Sections.SelectPlan ? (
+              <SelectPlanComponent />
+            ) : null}
+            {activeStep === Sections.PickAddOns ? (
+              <PickAddOnsComponent />
+            ) : null}
+            {activeStep === Sections.Summary ? (
               <SummaryComponent allowUserToChangePlan={allowUserToChangePlan} />
             ) : null}
-            {activeStep === 4 ? <CompletedFormComponent /> : null}
-          </div>
-          {activeStep < 4 ? (
+            {activeStep === Sections.Completed ? (
+              <CompletedFormComponent />
+            ) : null}
+          </section>
+          {activeStep < Sections.Completed ? (
             <footer className="buttons-outer-container">
               <Button
-                disabled={activeStep === 0}
+                disabled={activeStep === Sections.PersonalInfo}
                 onClick={() => setPreviousStep()}
                 sx={{ mr: 1 }}
                 id="btn-go-back"
