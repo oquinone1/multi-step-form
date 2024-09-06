@@ -20,6 +20,11 @@ const PersonalInfoComponent = () => {
         helperText={store.hasNameBeenEntered ? "" : "Must enter name"}
         value={store.name}
         onChange={(e) => store.setName(e.target.value)}
+        onBlur={() => {
+          store.name
+            ? store.setHasNameBeenEntered(true)
+            : store.setHasNameBeenEntered(false);
+        }}
       />
       <TextField
         error={store.hasEmailBeenEntered ? false : true}
@@ -30,6 +35,11 @@ const PersonalInfoComponent = () => {
         className="input-box"
         value={store.email}
         onChange={(e) => store.setEmail(e.target.value)}
+        onBlur={() => {
+          store.email
+            ? store.setHasEmailBeenEntered(true)
+            : store.setHasEmailBeenEntered(false);
+        }}
       />
       <TextField
         id="Phone Number"
