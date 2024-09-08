@@ -33,9 +33,12 @@ const MulitPartFormComponent = () => {
   } = useStepper();
 
   return (
-    <main id="container">
-      <div className="mulitpart-form-container">
-        <div className="stepper-container">
+    <section id="multipart-form-outer-container">
+      <div className="mulitpart-form-inner-container">
+        <aside
+          className="stepper-container"
+          aria-label="Multi-step form progress display"
+        >
           <Stepper
             className="stepper-container-list"
             activeStep={activeStep}
@@ -86,9 +89,9 @@ const MulitPartFormComponent = () => {
               );
             })}
           </Stepper>
-        </div>
-        <div className="content-container">
-          <section className="component-container">
+        </aside>
+        <section className="content-container">
+          <section className="current-selection-component-container">
             {activeStep === Sections.PersonalInfo ? (
               <PersonalInfoComponent />
             ) : null}
@@ -106,7 +109,10 @@ const MulitPartFormComponent = () => {
             ) : null}
           </section>
           {activeStep < Sections.Completed ? (
-            <footer className="buttons-outer-container">
+            <nav
+              className="buttons-outer-container"
+              aria-label="Multi-step form navigation buttons"
+            >
               <Button
                 disabled={activeStep === Sections.PersonalInfo}
                 onClick={() => setPreviousStep()}
@@ -119,11 +125,11 @@ const MulitPartFormComponent = () => {
               <Button onClick={() => setNextStep()} id="btn-next">
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
               </Button>
-            </footer>
+            </nav>
           ) : null}
-        </div>
+        </section>
       </div>
-    </main>
+    </section>
   );
 };
 

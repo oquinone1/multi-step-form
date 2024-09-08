@@ -4,8 +4,10 @@ import thankYouImage from "../images/icon-thank-you.svg";
 const CompletedFormComponent = () => {
   return (
     <main id="completed-container">
-      <img src={thankYouImage} alt="thank you" />
-      <h1>Thank you!</h1>
+      <header>
+        <img src={thankYouImage} alt="thank you" />
+        <h1>Thank you!</h1>
+      </header>
       <p>
         Thanks for confirming your subscription!
         <br /> We hope you have fun using our

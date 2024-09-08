@@ -9,23 +9,31 @@ const PickAddOnsComponent = () => {
     usePickAddOns();
 
   return (
-    <main className="add-ons-container">
-      <Typography id="header-text">Pick add-ons</Typography>
-      <Typography id="description-text">
-        Add-ons help enhance your gaming experience
-      </Typography>
+    <main className="add-ons-container" aria-label="Select add ons">
+      <header>
+        <Typography id="header-text">Pick add-ons</Typography>
+        <Typography id="description-text">
+          Add-ons help enhance your gaming experience
+        </Typography>
+      </header>
 
-      <div>
+      <>
         <Card className="card-container">
           <div className="checkbox-container">
             <Checkbox
               checked={store.onlineService}
               onClick={() => setOnlineService()}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") setOnlineService();
+              }}
             />
           </div>
           <CardContent className="card-content">
             <div>
-              <Typography className="card-text-header">
+              <Typography
+                className="card-text-header"
+                aria-label="Online Service"
+              >
                 Online Service
               </Typography>
               <Typography className="card-description">
@@ -45,6 +53,9 @@ const PickAddOnsComponent = () => {
             <Checkbox
               checked={store.largerStorage}
               onClick={() => setLargerStorage()}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") setLargerStorage();
+              }}
             />
           </div>
           <CardContent className="card-content">
@@ -70,6 +81,9 @@ const PickAddOnsComponent = () => {
             <Checkbox
               checked={store.customizableProfile}
               onClick={() => setCustomizableProfile()}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") setCustomizableProfile();
+              }}
             />
           </div>
           <CardContent className="card-content">
@@ -89,7 +103,7 @@ const PickAddOnsComponent = () => {
             </>
           </CardContent>
         </Card>
-      </div>
+      </>
     </main>
   );
 };

@@ -65,13 +65,15 @@ const SelectPlanComponent = () => {
   const store: any = useStore();
 
   return (
-    <div id="select-plan-container">
-      <Typography id="header-text">Select your plan</Typography>
-      <Typography id="p-text">
-        You have the option of monthly or yearly billing
-      </Typography>
+    <main id="select-plan-container" aria-label="Select monthly or yearly plan">
+      <header>
+        <Typography id="header-text">Select your plan</Typography>
+        <Typography id="p-text">
+          You have the option of monthly or yearly billing
+        </Typography>
+      </header>
 
-      <div className="outer-card-container">
+      <section className="outer-card-container" aria-label="Select plan">
         {/* Arcade */}
         <Card
           className="card-container"
@@ -163,18 +165,25 @@ const SelectPlanComponent = () => {
             </CardContent>
           </CardActionArea>
         </Card>
-      </div>
+      </section>
 
-      <div className="type-of-plan">
+      <section
+        className="type-of-plan"
+        aria-label="Select if the plan is monthly or yearly"
+      >
         <Stack direction="row" spacing={1} alignItems="center">
           <Typography id="monthly-text">Monthly</Typography>
           <AntSwitch
             checked={store.monthlyOrYearlyPlan}
             onChange={() => monthlyOrYearlyPlan()}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") monthlyOrYearlyPlan();
+            }}
+            autoFocus
           />
           <Typography id="yearly-text">Yearly</Typography>
         </Stack>
-      </div>
+      </section>
       <>
         {store.hasPlanBeenSelected ? null : (
           <Alert variant="filled" severity="error">
@@ -182,7 +191,7 @@ const SelectPlanComponent = () => {
           </Alert>
         )}
       </>
-    </div>
+    </main>
   );
 };
 export default SelectPlanComponent;
